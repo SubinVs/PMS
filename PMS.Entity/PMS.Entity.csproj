@@ -142,6 +142,7 @@
       <LastGenOutput>PMSModel.Context.cs</LastGenOutput>
       <DependentUpon>PMSModel.edmx</DependentUpon>
     </Content>
+    <Content Include="PMSModel.edmx.sql" />
     <Content Include="PMSModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PMSModel.edmx</DependentUpon>

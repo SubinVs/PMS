@@ -4,527 +4,526 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="HMS_AdvanceControl">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OutletId" Type="int" Nullable="false" />
-          <Property Name="RecieptNo" Type="int" Nullable="false" />
-          <Property Name="PrintAdvance" Type="bit" Nullable="false" />
-          <Property Name="NoofCopies" Type="int" Nullable="false" />
-          <Property Name="SendSms" Type="bit" Nullable="false" />
-          <Property Name="SmsToMd" Type="bit" Nullable="false" />
-          <Property Name="SmsToGuest" Type="bit" Nullable="false" />
-          <Property Name="SendEmail" Type="bit" Nullable="false" />
-          <Property Name="EmailToMd" Type="bit" Nullable="false" />
-          <Property Name="EmailToGuest" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_Agent">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AgentName" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="Active" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_CheckIn">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GuestId" Type="int" Nullable="false" />
-          <Property Name="RoomId" Type="int" Nullable="false" />
-          <Property Name="CheckInDate" Type="datetime" Nullable="false" />
-          <Property Name="CheckOutDate" Type="datetime" Nullable="false" />
-          <Property Name="GRCNo" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="PurposeId" Type="int" Nullable="false" />
-          <Property Name="PlanId" Type="int" Nullable="false" />
-          <Property Name="CompanyId" Type="int" Nullable="false" />
-          <Property Name="AgentId" Type="int" Nullable="false" />
-          <Property Name="Comments" Type="varchar" MaxLength="200" />
-          <Property Name="UserId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_City">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="state_id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_Company">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CompanyName" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="Active" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_Control">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Address" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="PhoneNo" Type="varchar" MaxLength="15" />
-          <Property Name="AlternatePhoneNo" Type="varchar" MaxLength="15" />
-          <Property Name="MobileNo" Type="varchar" MaxLength="15" />
-          <Property Name="AlternateMobileNo" Type="varchar" MaxLength="15" />
-          <Property Name="MailId" Type="varchar" MaxLength="50" />
-          <Property Name="AlternateMailId" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="HMS_Country">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="sortname" Type="varchar(max)" Nullable="false" />
-          <Property Name="name" Type="varchar(max)" Nullable="false" />
-          <Property Name="phonecode" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_Floor">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FloorName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Active" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_Guest">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PrefixId" Type="int" Nullable="false" />
-          <Property Name="GuestName" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Address" Type="varchar" MaxLength="200" />
-          <Property Name="CountryId" Type="int" Nullable="false" />
-          <Property Name="StateId" Type="int" Nullable="false" />
-          <Property Name="CityId" Type="int" Nullable="false" />
-          <Property Name="Pincode" Type="int" Nullable="false" />
-          <Property Name="MobileNo" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="EmailId" Type="varchar" MaxLength="50" />
-          <Property Name="ImagePath" Type="varchar" MaxLength="100" />
-          <Property Name="DocumentPath" Type="varchar" MaxLength="100" />
-          <Property Name="Active" Type="bit" />
-        </EntityType>
-        <EntityType Name="HMS_Outlet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OutletName" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="GRCNo" Type="int" Nullable="false" />
-          <Property Name="ControlId" Type="int" Nullable="false" />
-          <Property Name="Address" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="AlternateAddress" Type="varchar" MaxLength="150" />
-          <Property Name="MobileNo" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="AlternateMobileNo" Type="varchar" MaxLength="15" />
-          <Property Name="PhoneNo" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="AlternatePhoneNo" Type="varchar" MaxLength="15" />
-          <Property Name="EmailId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="AlternateEmailId" Type="varchar" MaxLength="50" />
-          <Property Name="GraceHours" Type="int" Nullable="false" />
-          <Property Name="Active" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_Plan">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PlanType" Type="varchar" MaxLength="10" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_Purpose">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PurposeType" Type="varchar" MaxLength="10" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_Rate">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AgentId" Type="int" Nullable="false" />
-          <Property Name="PlanId" Type="int" Nullable="false" />
-          <Property Name="RoomTypeId" Type="int" Nullable="false" />
-          <Property Name="Occupancy" Type="int" Nullable="false" />
-          <Property Name="Amount" Type="int" Nullable="false" />
-          <Property Name="ExtraPersonCharge" Type="int" Nullable="false" />
-          <Property Name="AgentName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="PlanName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="RoomType" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_Room">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RoomNo" Type="varchar" MaxLength="5" Nullable="false" />
-          <Property Name="FloorId" Type="int" Nullable="false" />
-          <Property Name="RoomTypeId" Type="int" Nullable="false" />
-          <Property Name="StatusId" Type="int" Nullable="false" />
-          <Property Name="Active" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_RoomType">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RoomTypeName" Type="varchar" MaxLength="50" />
-          <Property Name="Occupancy" Type="int" Nullable="false" />
-          <Property Name="Active" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_State">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="country_id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="HMS_TaxControl">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="OutletId" Type="int" Nullable="false" />
-          <Property Name="TaxName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="TaxNo" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="FromSlabAmount" Type="int" Nullable="false" />
-          <Property Name="ToSlabAmount" Type="int" Nullable="false" />
-          <Property Name="Percentage" Type="int" Nullable="false" />
-          <Property Name="Active" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Prefix">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PrefixName" Type="varchar" MaxLength="7" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Status">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="StatusName" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_AdvanceControl_Outlet">
-          <End Role="HMS_Outlet" Type="Self.HMS_Outlet" Multiplicity="1" />
-          <End Role="HMS_AdvanceControl" Type="Self.HMS_AdvanceControl" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Outlet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_AdvanceControl">
-              <PropertyRef Name="OutletId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CheckIn_Agent">
-          <End Role="HMS_Agent" Type="Self.HMS_Agent" Multiplicity="1" />
-          <End Role="HMS_CheckIn" Type="Self.HMS_CheckIn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Agent">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_CheckIn">
-              <PropertyRef Name="AgentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CheckIn_Company">
-          <End Role="HMS_Company" Type="Self.HMS_Company" Multiplicity="1" />
-          <End Role="HMS_CheckIn" Type="Self.HMS_CheckIn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Company">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_CheckIn">
-              <PropertyRef Name="CompanyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CheckIn_Guest">
-          <End Role="HMS_Guest" Type="Self.HMS_Guest" Multiplicity="1" />
-          <End Role="HMS_CheckIn" Type="Self.HMS_CheckIn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Guest">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_CheckIn">
-              <PropertyRef Name="GuestId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CheckIn_Plan">
-          <End Role="HMS_Plan" Type="Self.HMS_Plan" Multiplicity="1" />
-          <End Role="HMS_CheckIn" Type="Self.HMS_CheckIn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Plan">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_CheckIn">
-              <PropertyRef Name="PlanId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CheckIn_Purpose">
-          <End Role="HMS_Purpose" Type="Self.HMS_Purpose" Multiplicity="1" />
-          <End Role="HMS_CheckIn" Type="Self.HMS_CheckIn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Purpose">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_CheckIn">
-              <PropertyRef Name="PurposeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CheckIn_Room">
-          <End Role="HMS_Room" Type="Self.HMS_Room" Multiplicity="1" />
-          <End Role="HMS_CheckIn" Type="Self.HMS_CheckIn" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Room">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_CheckIn">
-              <PropertyRef Name="RoomId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_City_State">
-          <End Role="HMS_State" Type="Self.HMS_State" Multiplicity="1" />
-          <End Role="HMS_City" Type="Self.HMS_City" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_State">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="HMS_City">
-              <PropertyRef Name="state_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Guest_City">
-          <End Role="HMS_City" Type="Self.HMS_City" Multiplicity="1" />
-          <End Role="HMS_Guest" Type="Self.HMS_Guest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_City">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="HMS_Guest">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Guest_Country">
-          <End Role="HMS_Country" Type="Self.HMS_Country" Multiplicity="1" />
-          <End Role="HMS_Guest" Type="Self.HMS_Guest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Country">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="HMS_Guest">
-              <PropertyRef Name="CountryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Guest_Prefix">
-          <End Role="Prefix" Type="Self.Prefix" Multiplicity="1" />
-          <End Role="HMS_Guest" Type="Self.HMS_Guest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Prefix">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_Guest">
-              <PropertyRef Name="PrefixId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Guest_State">
-          <End Role="HMS_State" Type="Self.HMS_State" Multiplicity="1" />
-          <End Role="HMS_Guest" Type="Self.HMS_Guest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_State">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="HMS_Guest">
-              <PropertyRef Name="StateId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Outlet_Control">
-          <End Role="HMS_Control" Type="Self.HMS_Control" Multiplicity="1" />
-          <End Role="HMS_Outlet" Type="Self.HMS_Outlet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Control">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_Outlet">
-              <PropertyRef Name="ControlId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Room_Floor">
-          <End Role="HMS_Floor" Type="Self.HMS_Floor" Multiplicity="1" />
-          <End Role="HMS_Room" Type="Self.HMS_Room" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Floor">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_Room">
-              <PropertyRef Name="FloorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Room_RoomType">
-          <End Role="HMS_RoomType" Type="Self.HMS_RoomType" Multiplicity="1" />
-          <End Role="HMS_Room" Type="Self.HMS_Room" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_RoomType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_Room">
-              <PropertyRef Name="RoomTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Room_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="1" />
-          <End Role="HMS_Room" Type="Self.HMS_Room" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_Room">
-              <PropertyRef Name="StatusId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_State_Country">
-          <End Role="HMS_Country" Type="Self.HMS_Country" Multiplicity="1" />
-          <End Role="HMS_State" Type="Self.HMS_State" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Country">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="HMS_State">
-              <PropertyRef Name="country_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TaxControl_Outlet">
-          <End Role="HMS_Outlet" Type="Self.HMS_Outlet" Multiplicity="1" />
-          <End Role="HMS_TaxControl" Type="Self.HMS_TaxControl" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HMS_Outlet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="HMS_TaxControl">
-              <PropertyRef Name="OutletId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="PMSModelStoreContainer">
-          <EntitySet Name="HMS_AdvanceControl" EntityType="Self.HMS_AdvanceControl" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Agent" EntityType="Self.HMS_Agent" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_CheckIn" EntityType="Self.HMS_CheckIn" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_City" EntityType="Self.HMS_City" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Company" EntityType="Self.HMS_Company" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Control" EntityType="Self.HMS_Control" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Country" EntityType="Self.HMS_Country" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Floor" EntityType="Self.HMS_Floor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Guest" EntityType="Self.HMS_Guest" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Outlet" EntityType="Self.HMS_Outlet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Plan" EntityType="Self.HMS_Plan" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Purpose" EntityType="Self.HMS_Purpose" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Rate" EntityType="Self.HMS_Rate" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_Room" EntityType="Self.HMS_Room" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_RoomType" EntityType="Self.HMS_RoomType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_State" EntityType="Self.HMS_State" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HMS_TaxControl" EntityType="Self.HMS_TaxControl" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Prefix" EntityType="Self.Prefix" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_AdvanceControl_Outlet" Association="Self.FK_AdvanceControl_Outlet">
-            <End Role="HMS_Outlet" EntitySet="HMS_Outlet" />
-            <End Role="HMS_AdvanceControl" EntitySet="HMS_AdvanceControl" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CheckIn_Agent" Association="Self.FK_CheckIn_Agent">
-            <End Role="HMS_Agent" EntitySet="HMS_Agent" />
-            <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CheckIn_Company" Association="Self.FK_CheckIn_Company">
-            <End Role="HMS_Company" EntitySet="HMS_Company" />
-            <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CheckIn_Guest" Association="Self.FK_CheckIn_Guest">
-            <End Role="HMS_Guest" EntitySet="HMS_Guest" />
-            <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CheckIn_Plan" Association="Self.FK_CheckIn_Plan">
-            <End Role="HMS_Plan" EntitySet="HMS_Plan" />
-            <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CheckIn_Purpose" Association="Self.FK_CheckIn_Purpose">
-            <End Role="HMS_Purpose" EntitySet="HMS_Purpose" />
-            <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CheckIn_Room" Association="Self.FK_CheckIn_Room">
-            <End Role="HMS_Room" EntitySet="HMS_Room" />
-            <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
-          </AssociationSet>
-          <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
-            <End Role="HMS_State" EntitySet="HMS_State" />
-            <End Role="HMS_City" EntitySet="HMS_City" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Guest_City" Association="Self.FK_Guest_City">
-            <End Role="HMS_City" EntitySet="HMS_City" />
-            <End Role="HMS_Guest" EntitySet="HMS_Guest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Guest_Country" Association="Self.FK_Guest_Country">
-            <End Role="HMS_Country" EntitySet="HMS_Country" />
-            <End Role="HMS_Guest" EntitySet="HMS_Guest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Guest_Prefix" Association="Self.FK_Guest_Prefix">
-            <End Role="Prefix" EntitySet="Prefix" />
-            <End Role="HMS_Guest" EntitySet="HMS_Guest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Guest_State" Association="Self.FK_Guest_State">
-            <End Role="HMS_State" EntitySet="HMS_State" />
-            <End Role="HMS_Guest" EntitySet="HMS_Guest" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Outlet_Control" Association="Self.FK_Outlet_Control">
-            <End Role="HMS_Control" EntitySet="HMS_Control" />
-            <End Role="HMS_Outlet" EntitySet="HMS_Outlet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Room_Floor" Association="Self.FK_Room_Floor">
-            <End Role="HMS_Floor" EntitySet="HMS_Floor" />
-            <End Role="HMS_Room" EntitySet="HMS_Room" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Room_RoomType" Association="Self.FK_Room_RoomType">
-            <End Role="HMS_RoomType" EntitySet="HMS_RoomType" />
-            <End Role="HMS_Room" EntitySet="HMS_Room" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Room_Status" Association="Self.FK_Room_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="HMS_Room" EntitySet="HMS_Room" />
-          </AssociationSet>
-          <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
-            <End Role="HMS_Country" EntitySet="HMS_Country" />
-            <End Role="HMS_State" EntitySet="HMS_State" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TaxControl_Outlet" Association="Self.FK_TaxControl_Outlet">
-            <End Role="HMS_Outlet" EntitySet="HMS_Outlet" />
-            <End Role="HMS_TaxControl" EntitySet="HMS_TaxControl" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="PMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PMSModelStoreContainer">
+    <EntitySet Name="HMS_AdvanceControl" EntityType="PMSModel.Store.HMS_AdvanceControl" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Agent" EntityType="PMSModel.Store.HMS_Agent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_CheckIn" EntityType="PMSModel.Store.HMS_CheckIn" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_City" EntityType="PMSModel.Store.HMS_City" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Company" EntityType="PMSModel.Store.HMS_Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Control" EntityType="PMSModel.Store.HMS_Control" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Country" EntityType="PMSModel.Store.HMS_Country" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Floor" EntityType="PMSModel.Store.HMS_Floor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Guest" EntityType="PMSModel.Store.HMS_Guest" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Outlet" EntityType="PMSModel.Store.HMS_Outlet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Plan" EntityType="PMSModel.Store.HMS_Plan" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Purpose" EntityType="PMSModel.Store.HMS_Purpose" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Rate" EntityType="PMSModel.Store.HMS_Rate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_Room" EntityType="PMSModel.Store.HMS_Room" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_RoomType" EntityType="PMSModel.Store.HMS_RoomType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_State" EntityType="PMSModel.Store.HMS_State" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HMS_TaxControl" EntityType="PMSModel.Store.HMS_TaxControl" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Prefixes" EntityType="PMSModel.Store.Prefixes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Status" EntityType="PMSModel.Store.Status" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AdvanceControl_Outlet" Association="PMSModel.Store.FK_AdvanceControl_Outlet">
+      <End Role="HMS_Outlet" EntitySet="HMS_Outlet" />
+      <End Role="HMS_AdvanceControl" EntitySet="HMS_AdvanceControl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_Agent" Association="PMSModel.Store.FK_CheckIn_Agent">
+      <End Role="HMS_Agent" EntitySet="HMS_Agent" />
+      <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_Company" Association="PMSModel.Store.FK_CheckIn_Company">
+      <End Role="HMS_Company" EntitySet="HMS_Company" />
+      <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_Guest" Association="PMSModel.Store.FK_CheckIn_Guest">
+      <End Role="HMS_Guest" EntitySet="HMS_Guest" />
+      <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_Plan" Association="PMSModel.Store.FK_CheckIn_Plan">
+      <End Role="HMS_Plan" EntitySet="HMS_Plan" />
+      <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_Purpose" Association="PMSModel.Store.FK_CheckIn_Purpose">
+      <End Role="HMS_Purpose" EntitySet="HMS_Purpose" />
+      <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckIn_Room" Association="PMSModel.Store.FK_CheckIn_Room">
+      <End Role="HMS_Room" EntitySet="HMS_Room" />
+      <End Role="HMS_CheckIn" EntitySet="HMS_CheckIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State" Association="PMSModel.Store.FK_City_State">
+      <End Role="HMS_State" EntitySet="HMS_State" />
+      <End Role="HMS_City" EntitySet="HMS_City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Guest_City" Association="PMSModel.Store.FK_Guest_City">
+      <End Role="HMS_City" EntitySet="HMS_City" />
+      <End Role="HMS_Guest" EntitySet="HMS_Guest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Outlet_Control" Association="PMSModel.Store.FK_Outlet_Control">
+      <End Role="HMS_Control" EntitySet="HMS_Control" />
+      <End Role="HMS_Outlet" EntitySet="HMS_Outlet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Guest_Country" Association="PMSModel.Store.FK_Guest_Country">
+      <End Role="HMS_Country" EntitySet="HMS_Country" />
+      <End Role="HMS_Guest" EntitySet="HMS_Guest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="PMSModel.Store.FK_State_Country">
+      <End Role="HMS_Country" EntitySet="HMS_Country" />
+      <End Role="HMS_State" EntitySet="HMS_State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_Floor" Association="PMSModel.Store.FK_Room_Floor">
+      <End Role="HMS_Floor" EntitySet="HMS_Floor" />
+      <End Role="HMS_Room" EntitySet="HMS_Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Guest_Prefix" Association="PMSModel.Store.FK_Guest_Prefix">
+      <End Role="Prefix" EntitySet="Prefixes" />
+      <End Role="HMS_Guest" EntitySet="HMS_Guest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Guest_State" Association="PMSModel.Store.FK_Guest_State">
+      <End Role="HMS_State" EntitySet="HMS_State" />
+      <End Role="HMS_Guest" EntitySet="HMS_Guest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaxControl_Outlet" Association="PMSModel.Store.FK_TaxControl_Outlet">
+      <End Role="HMS_Outlet" EntitySet="HMS_Outlet" />
+      <End Role="HMS_TaxControl" EntitySet="HMS_TaxControl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_RoomType" Association="PMSModel.Store.FK_Room_RoomType">
+      <End Role="HMS_RoomType" EntitySet="HMS_RoomType" />
+      <End Role="HMS_Room" EntitySet="HMS_Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_Status" Association="PMSModel.Store.FK_Room_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="HMS_Room" EntitySet="HMS_Room" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="HMS_AdvanceControl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OutletId" Type="int" Nullable="false" />
+    <Property Name="RecieptNo" Type="int" Nullable="false" />
+    <Property Name="PrintAdvance" Type="bit" Nullable="false" />
+    <Property Name="NoofCopies" Type="int" Nullable="false" />
+    <Property Name="SendSms" Type="bit" Nullable="false" />
+    <Property Name="SmsToMd" Type="bit" Nullable="false" />
+    <Property Name="SmsToGuest" Type="bit" Nullable="false" />
+    <Property Name="SendEmail" Type="bit" Nullable="false" />
+    <Property Name="EmailToMd" Type="bit" Nullable="false" />
+    <Property Name="EmailToGuest" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_Agent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgentName" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_CheckIn">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuestId" Type="int" Nullable="false" />
+    <Property Name="RoomId" Type="int" Nullable="false" />
+    <Property Name="CheckInDate" Type="datetime" Nullable="false" />
+    <Property Name="CheckOutDate" Type="datetime" Nullable="false" />
+    <Property Name="GRCNo" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="PurposeId" Type="int" Nullable="false" />
+    <Property Name="PlanId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="AgentId" Type="int" Nullable="false" />
+    <Property Name="Comments" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="state_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_Control">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="PhoneNo" Type="varchar" Nullable="true" MaxLength="15" />
+    <Property Name="AlternatePhoneNo" Type="varchar" Nullable="true" MaxLength="15" />
+    <Property Name="MobileNo" Type="varchar" Nullable="true" MaxLength="15" />
+    <Property Name="AlternateMobileNo" Type="varchar" Nullable="true" MaxLength="15" />
+    <Property Name="MailId" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="AlternateMailId" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HMS_Country">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sortname" Type="varchar(max)" Nullable="false" />
+    <Property Name="name" Type="varchar(max)" Nullable="false" />
+    <Property Name="phonecode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_Floor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FloorName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_Guest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrefixId" Type="int" Nullable="false" />
+    <Property Name="GuestName" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Address" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="Pincode" Type="int" Nullable="false" />
+    <Property Name="MobileNo" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="EmailId" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ImagePath" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="DocumentPath" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="Active" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="HMS_Outlet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OutletName" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="GRCNo" Type="int" Nullable="false" />
+    <Property Name="ControlId" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="AlternateAddress" Type="varchar" Nullable="true" MaxLength="150" />
+    <Property Name="MobileNo" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="AlternateMobileNo" Type="varchar" Nullable="true" MaxLength="15" />
+    <Property Name="PhoneNo" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="AlternatePhoneNo" Type="varchar" Nullable="true" MaxLength="15" />
+    <Property Name="EmailId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="AlternateEmailId" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="GraceHours" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_Plan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanType" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HMS_Purpose">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurposeType" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HMS_Rate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgentId" Type="int" Nullable="false" />
+    <Property Name="PlanId" Type="int" Nullable="false" />
+    <Property Name="RoomTypeId" Type="int" Nullable="false" />
+    <Property Name="Occupancy" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="ExtraPersonCharge" Type="int" Nullable="false" />
+    <Property Name="AgentName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="PlanName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="RoomType" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HMS_Room">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoomNo" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="FloorId" Type="int" Nullable="false" />
+    <Property Name="RoomTypeId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_RoomType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoomTypeName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Occupancy" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_State">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="country_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HMS_TaxControl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="OutletId" Type="int" Nullable="false" />
+    <Property Name="TaxName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="TaxNo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="FromSlabAmount" Type="int" Nullable="false" />
+    <Property Name="ToSlabAmount" Type="int" Nullable="false" />
+    <Property Name="Percentage" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prefixes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrefixName" Type="varchar" Nullable="false" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_AdvanceControl_Outlet">
+    <End Role="HMS_Outlet" Type="PMSModel.Store.HMS_Outlet" Multiplicity="1" />
+    <End Role="HMS_AdvanceControl" Type="PMSModel.Store.HMS_AdvanceControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Outlet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_AdvanceControl">
+        <PropertyRef Name="OutletId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_Agent">
+    <End Role="HMS_Agent" Type="PMSModel.Store.HMS_Agent" Multiplicity="1" />
+    <End Role="HMS_CheckIn" Type="PMSModel.Store.HMS_CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Agent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_CheckIn">
+        <PropertyRef Name="AgentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_Company">
+    <End Role="HMS_Company" Type="PMSModel.Store.HMS_Company" Multiplicity="1" />
+    <End Role="HMS_CheckIn" Type="PMSModel.Store.HMS_CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_CheckIn">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_Guest">
+    <End Role="HMS_Guest" Type="PMSModel.Store.HMS_Guest" Multiplicity="1" />
+    <End Role="HMS_CheckIn" Type="PMSModel.Store.HMS_CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Guest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_CheckIn">
+        <PropertyRef Name="GuestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_Plan">
+    <End Role="HMS_Plan" Type="PMSModel.Store.HMS_Plan" Multiplicity="1" />
+    <End Role="HMS_CheckIn" Type="PMSModel.Store.HMS_CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Plan">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_CheckIn">
+        <PropertyRef Name="PlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_Purpose">
+    <End Role="HMS_Purpose" Type="PMSModel.Store.HMS_Purpose" Multiplicity="1" />
+    <End Role="HMS_CheckIn" Type="PMSModel.Store.HMS_CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Purpose">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_CheckIn">
+        <PropertyRef Name="PurposeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckIn_Room">
+    <End Role="HMS_Room" Type="PMSModel.Store.HMS_Room" Multiplicity="1" />
+    <End Role="HMS_CheckIn" Type="PMSModel.Store.HMS_CheckIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Room">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_CheckIn">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State">
+    <End Role="HMS_State" Type="PMSModel.Store.HMS_State" Multiplicity="1" />
+    <End Role="HMS_City" Type="PMSModel.Store.HMS_City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_State">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HMS_City">
+        <PropertyRef Name="state_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Guest_City">
+    <End Role="HMS_City" Type="PMSModel.Store.HMS_City" Multiplicity="1" />
+    <End Role="HMS_Guest" Type="PMSModel.Store.HMS_Guest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HMS_Guest">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Outlet_Control">
+    <End Role="HMS_Control" Type="PMSModel.Store.HMS_Control" Multiplicity="1" />
+    <End Role="HMS_Outlet" Type="PMSModel.Store.HMS_Outlet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Control">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_Outlet">
+        <PropertyRef Name="ControlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Guest_Country">
+    <End Role="HMS_Country" Type="PMSModel.Store.HMS_Country" Multiplicity="1" />
+    <End Role="HMS_Guest" Type="PMSModel.Store.HMS_Guest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Country">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HMS_Guest">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Role="HMS_Country" Type="PMSModel.Store.HMS_Country" Multiplicity="1" />
+    <End Role="HMS_State" Type="PMSModel.Store.HMS_State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Country">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HMS_State">
+        <PropertyRef Name="country_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_Floor">
+    <End Role="HMS_Floor" Type="PMSModel.Store.HMS_Floor" Multiplicity="1" />
+    <End Role="HMS_Room" Type="PMSModel.Store.HMS_Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Floor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_Room">
+        <PropertyRef Name="FloorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Guest_Prefix">
+    <End Role="Prefix" Type="PMSModel.Store.Prefixes" Multiplicity="1" />
+    <End Role="HMS_Guest" Type="PMSModel.Store.HMS_Guest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prefix">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_Guest">
+        <PropertyRef Name="PrefixId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Guest_State">
+    <End Role="HMS_State" Type="PMSModel.Store.HMS_State" Multiplicity="1" />
+    <End Role="HMS_Guest" Type="PMSModel.Store.HMS_Guest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_State">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="HMS_Guest">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaxControl_Outlet">
+    <End Role="HMS_Outlet" Type="PMSModel.Store.HMS_Outlet" Multiplicity="1" />
+    <End Role="HMS_TaxControl" Type="PMSModel.Store.HMS_TaxControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_Outlet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_TaxControl">
+        <PropertyRef Name="OutletId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_RoomType">
+    <End Role="HMS_RoomType" Type="PMSModel.Store.HMS_RoomType" Multiplicity="1" />
+    <End Role="HMS_Room" Type="PMSModel.Store.HMS_Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HMS_RoomType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_Room">
+        <PropertyRef Name="RoomTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_Status">
+    <End Role="Status" Type="PMSModel.Store.Status" Multiplicity="1" />
+    <End Role="HMS_Room" Type="PMSModel.Store.HMS_Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HMS_Room">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1086,239 +1085,238 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PMSModelStoreContainer" CdmEntityContainer="PMSEntities">
-          <EntitySetMapping Name="HMS_AdvanceControl">
-            <EntityTypeMapping TypeName="PMSModel.HMS_AdvanceControl">
-              <MappingFragment StoreEntitySet="HMS_AdvanceControl">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
-                <ScalarProperty Name="RecieptNo" ColumnName="RecieptNo" />
-                <ScalarProperty Name="PrintAdvance" ColumnName="PrintAdvance" />
-                <ScalarProperty Name="NoofCopies" ColumnName="NoofCopies" />
-                <ScalarProperty Name="SendSms" ColumnName="SendSms" />
-                <ScalarProperty Name="SmsToMd" ColumnName="SmsToMd" />
-                <ScalarProperty Name="SmsToGuest" ColumnName="SmsToGuest" />
-                <ScalarProperty Name="SendEmail" ColumnName="SendEmail" />
-                <ScalarProperty Name="EmailToMd" ColumnName="EmailToMd" />
-                <ScalarProperty Name="EmailToGuest" ColumnName="EmailToGuest" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Agent">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Agent">
-              <MappingFragment StoreEntitySet="HMS_Agent">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_CheckIn">
-            <EntityTypeMapping TypeName="PMSModel.HMS_CheckIn">
-              <MappingFragment StoreEntitySet="HMS_CheckIn">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="GuestId" ColumnName="GuestId" />
-                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
-                <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
-                <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
-                <ScalarProperty Name="GRCNo" ColumnName="GRCNo" />
-                <ScalarProperty Name="PurposeId" ColumnName="PurposeId" />
-                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
-                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
-                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_City">
-            <EntityTypeMapping TypeName="PMSModel.HMS_City">
-              <MappingFragment StoreEntitySet="HMS_City">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="state_id" ColumnName="state_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Company">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Company">
-              <MappingFragment StoreEntitySet="HMS_Company">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Control">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Control">
-              <MappingFragment StoreEntitySet="HMS_Control">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
-                <ScalarProperty Name="AlternatePhoneNo" ColumnName="AlternatePhoneNo" />
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-                <ScalarProperty Name="AlternateMobileNo" ColumnName="AlternateMobileNo" />
-                <ScalarProperty Name="MailId" ColumnName="MailId" />
-                <ScalarProperty Name="AlternateMailId" ColumnName="AlternateMailId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Country">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Country">
-              <MappingFragment StoreEntitySet="HMS_Country">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="sortname" ColumnName="sortname" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="phonecode" ColumnName="phonecode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Floor">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Floor">
-              <MappingFragment StoreEntitySet="HMS_Floor">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FloorName" ColumnName="FloorName" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Guest">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Guest">
-              <MappingFragment StoreEntitySet="HMS_Guest">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PrefixId" ColumnName="PrefixId" />
-                <ScalarProperty Name="GuestName" ColumnName="GuestName" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="StateId" ColumnName="StateId" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
-                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-                <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Outlet">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Outlet">
-              <MappingFragment StoreEntitySet="HMS_Outlet">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OutletName" ColumnName="OutletName" />
-                <ScalarProperty Name="GRCNo" ColumnName="GRCNo" />
-                <ScalarProperty Name="ControlId" ColumnName="ControlId" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="AlternateAddress" ColumnName="AlternateAddress" />
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-                <ScalarProperty Name="AlternateMobileNo" ColumnName="AlternateMobileNo" />
-                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
-                <ScalarProperty Name="AlternatePhoneNo" ColumnName="AlternatePhoneNo" />
-                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
-                <ScalarProperty Name="AlternateEmailId" ColumnName="AlternateEmailId" />
-                <ScalarProperty Name="GraceHours" ColumnName="GraceHours" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Plan">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Plan">
-              <MappingFragment StoreEntitySet="HMS_Plan">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PlanType" ColumnName="PlanType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Purpose">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Purpose">
-              <MappingFragment StoreEntitySet="HMS_Purpose">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PurposeType" ColumnName="PurposeType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Rate">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Rate">
-              <MappingFragment StoreEntitySet="HMS_Rate">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
-                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
-                <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
-                <ScalarProperty Name="Occupancy" ColumnName="Occupancy" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="ExtraPersonCharge" ColumnName="ExtraPersonCharge" />
-                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
-                <ScalarProperty Name="PlanName" ColumnName="PlanName" />
-                <ScalarProperty Name="RoomType" ColumnName="RoomType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_Room">
-            <EntityTypeMapping TypeName="PMSModel.HMS_Room">
-              <MappingFragment StoreEntitySet="HMS_Room">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
-                <ScalarProperty Name="FloorId" ColumnName="FloorId" />
-                <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_RoomType">
-            <EntityTypeMapping TypeName="PMSModel.HMS_RoomType">
-              <MappingFragment StoreEntitySet="HMS_RoomType">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="RoomTypeName" ColumnName="RoomTypeName" />
-                <ScalarProperty Name="Occupancy" ColumnName="Occupancy" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_State">
-            <EntityTypeMapping TypeName="PMSModel.HMS_State">
-              <MappingFragment StoreEntitySet="HMS_State">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="country_id" ColumnName="country_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HMS_TaxControl">
-            <EntityTypeMapping TypeName="PMSModel.HMS_TaxControl">
-              <MappingFragment StoreEntitySet="HMS_TaxControl">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
-                <ScalarProperty Name="TaxName" ColumnName="TaxName" />
-                <ScalarProperty Name="TaxNo" ColumnName="TaxNo" />
-                <ScalarProperty Name="FromSlabAmount" ColumnName="FromSlabAmount" />
-                <ScalarProperty Name="ToSlabAmount" ColumnName="ToSlabAmount" />
-                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Prefixes">
-            <EntityTypeMapping TypeName="PMSModel.Prefix">
-              <MappingFragment StoreEntitySet="Prefix">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PrefixName" ColumnName="PrefixName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="PMSModel.Status">
-              <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PMSModelStoreContainer" CdmEntityContainer="PMSEntities">
+    <EntitySetMapping Name="HMS_AdvanceControl">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_AdvanceControl)">
+        <MappingFragment StoreEntitySet="HMS_AdvanceControl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+          <ScalarProperty Name="RecieptNo" ColumnName="RecieptNo" />
+          <ScalarProperty Name="PrintAdvance" ColumnName="PrintAdvance" />
+          <ScalarProperty Name="NoofCopies" ColumnName="NoofCopies" />
+          <ScalarProperty Name="SendSms" ColumnName="SendSms" />
+          <ScalarProperty Name="SmsToMd" ColumnName="SmsToMd" />
+          <ScalarProperty Name="SmsToGuest" ColumnName="SmsToGuest" />
+          <ScalarProperty Name="SendEmail" ColumnName="SendEmail" />
+          <ScalarProperty Name="EmailToMd" ColumnName="EmailToMd" />
+          <ScalarProperty Name="EmailToGuest" ColumnName="EmailToGuest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Agent">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Agent)">
+        <MappingFragment StoreEntitySet="HMS_Agent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_CheckIn">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_CheckIn)">
+        <MappingFragment StoreEntitySet="HMS_CheckIn">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuestId" ColumnName="GuestId" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
+          <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+          <ScalarProperty Name="GRCNo" ColumnName="GRCNo" />
+          <ScalarProperty Name="PurposeId" ColumnName="PurposeId" />
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_City">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_City)">
+        <MappingFragment StoreEntitySet="HMS_City">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Company">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Company)">
+        <MappingFragment StoreEntitySet="HMS_Company">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Control">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Control)">
+        <MappingFragment StoreEntitySet="HMS_Control">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="AlternatePhoneNo" ColumnName="AlternatePhoneNo" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="AlternateMobileNo" ColumnName="AlternateMobileNo" />
+          <ScalarProperty Name="MailId" ColumnName="MailId" />
+          <ScalarProperty Name="AlternateMailId" ColumnName="AlternateMailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Country">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Country)">
+        <MappingFragment StoreEntitySet="HMS_Country">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sortname" ColumnName="sortname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phonecode" ColumnName="phonecode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Floor">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Floor)">
+        <MappingFragment StoreEntitySet="HMS_Floor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FloorName" ColumnName="FloorName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Guest">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Guest)">
+        <MappingFragment StoreEntitySet="HMS_Guest">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrefixId" ColumnName="PrefixId" />
+          <ScalarProperty Name="GuestName" ColumnName="GuestName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Outlet">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Outlet)">
+        <MappingFragment StoreEntitySet="HMS_Outlet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OutletName" ColumnName="OutletName" />
+          <ScalarProperty Name="GRCNo" ColumnName="GRCNo" />
+          <ScalarProperty Name="ControlId" ColumnName="ControlId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="AlternateAddress" ColumnName="AlternateAddress" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="AlternateMobileNo" ColumnName="AlternateMobileNo" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="AlternatePhoneNo" ColumnName="AlternatePhoneNo" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="AlternateEmailId" ColumnName="AlternateEmailId" />
+          <ScalarProperty Name="GraceHours" ColumnName="GraceHours" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Plan">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Plan)">
+        <MappingFragment StoreEntitySet="HMS_Plan">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PlanType" ColumnName="PlanType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Purpose">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Purpose)">
+        <MappingFragment StoreEntitySet="HMS_Purpose">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PurposeType" ColumnName="PurposeType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Rate">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Rate)">
+        <MappingFragment StoreEntitySet="HMS_Rate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+          <ScalarProperty Name="Occupancy" ColumnName="Occupancy" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ExtraPersonCharge" ColumnName="ExtraPersonCharge" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+          <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Room">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_Room)">
+        <MappingFragment StoreEntitySet="HMS_Room">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+          <ScalarProperty Name="FloorId" ColumnName="FloorId" />
+          <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_RoomType">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_RoomType)">
+        <MappingFragment StoreEntitySet="HMS_RoomType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoomTypeName" ColumnName="RoomTypeName" />
+          <ScalarProperty Name="Occupancy" ColumnName="Occupancy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_State">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_State)">
+        <MappingFragment StoreEntitySet="HMS_State">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_TaxControl">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.HMS_TaxControl)">
+        <MappingFragment StoreEntitySet="HMS_TaxControl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+          <ScalarProperty Name="TaxName" ColumnName="TaxName" />
+          <ScalarProperty Name="TaxNo" ColumnName="TaxNo" />
+          <ScalarProperty Name="FromSlabAmount" ColumnName="FromSlabAmount" />
+          <ScalarProperty Name="ToSlabAmount" ColumnName="ToSlabAmount" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prefixes">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.Prefix)">
+        <MappingFragment StoreEntitySet="Prefixes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrefixName" ColumnName="PrefixName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="IsTypeOf(PMSModel.Status)">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -1332,7 +1330,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
