@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DataModel.Outlet>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                @*<h4 class="card-title">@ViewBag.Title</h4>*@
+                <input id="search" type="text" placeholder="Search" class="form-control round" style="width:150px; display:initial;" autofocus>
+                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a href="@Url.Action("Create",ViewBag.ControllerName)"><i class="icon-plus4"></i></a></li>
+                        <li><a href="#"><i class="icon-file-excel"></i></a></li>
+                        <li><a href="#"><i class="icon-file-pdf"></i></a></li>
+                        <li><a href="#"><i class="icon-printer"></i></a></li>
+                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body collapse in">
+                <div class="card-block card-dashboard">
+                    <p><span class="text-bold-600">Total Records:</span> @ViewBag.Count</p>
+                    <div class="table-responsive table-hover">
+                        <table id="table" class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>OUTLET</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int j = 1;
+                                    foreach (var n in Model)
+                                    {
+                                        <tr @(n.Active ? String.Empty : "class=inactive")>
+                                            <td>@j</td>
+                                            <td>@n.OutletName</td>
+                                            <td>
+                                                <a href="@Url.Action("Edit", ViewBag.ControllerName, new { id=n.Id})"><i class="icon-edit pink"></i>&nbsp;</a>
+                                                <a href="@Url.Action("Delete",ViewBag.ControllerName, new { id=n.Id})"><i class="icon-bin pink"></i></a>
+                                            </td>
+                                        </tr>
+                                        j++;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

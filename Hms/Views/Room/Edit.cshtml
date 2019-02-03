@@ -1,0 +1,88 @@
+﻿@model PMS.ViewModel.HMS.RoomViewModel
+@{
+    ViewBag.Title = "Room";
+    ViewBag.ControllerName = "Room";
+    ViewBag.MethodName = "Edit";
+}
+
+<section id="basic-form-layouts">
+    <div class="row match-height">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title" id="basic-layout-form">Edit Room</h4>
+                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                            <li><a href="@Url.Action("Index",ViewBag.ControllerName)"><i class="icon-cross2"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-body collapse in">
+                    <div class="card-block">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(n => n.Id)
+                            <form class="form">
+                                <div class="form-body">
+                                    <h4 class="form-section"><i class="icon-clipboard4"></i>Edit Room</h4>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="certificateName">Room No</label>
+                                                <div class="position-relative has-icon-left">
+                                                    @Html.TextBoxFor(n => n.RoomNo, null, new { @class = "form-control", @autofocus = "autofocus" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-clipboard4"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.RoomNo, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="prefixId" class="control-label">Room Type</label>
+                                                @Html.DropDownListFor(n => n.RoomTypeId, new SelectList(Model.RoomTypeList, "Id", "RoomTypeName"), new { @class = "form-control", @tabindex = 1 })
+                                                @Html.ValidationMessageFor(n => n.RoomTypeId, null, new { @style = "color:red;" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="prefixId" class="control-label">Floor</label>
+                                                @Html.DropDownListFor(n => n.FloorId, new SelectList(Model.FloorList, "Id", "FloorName"), new { @class = "form-control", @tabindex = 1 })
+                                                @Html.ValidationMessageFor(n => n.FloorId, null, new { @style = "color:red;" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="custom-control custom-checkbox">
+                                                    @Html.CheckBoxFor(n => n.Active, new { @class = "custom-control-input" })
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">Active</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions right">
+                                    <span style="color:red;float:left"> @ViewBag.DuplicateError </span>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="icon-check2"></i> Update
+                                    </button>
+                                    <a href="@Url.Action("Index",ViewBag.ControllerName)" class="btn btn-warning mr-1">
+                                        <i class="icon-cross2"></i> Cancel
+                                    </a>
+                                </div>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

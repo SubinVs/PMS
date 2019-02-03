@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f332f921fadc40d896528fd3e1d499a1" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="PMSModel.HMS_AdvanceControl" Width="1.5" PointX="14.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Agent" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_CheckIn" Width="1.5" PointX="9.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_City" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Company" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Control" Width="1.5" PointX="9.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Country" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Floor" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Guest" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Outlet" Width="1.5" PointX="12" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Plan" Width="1.5" PointX="7.5" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Purpose" Width="1.5" PointX="7.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Rate" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_Room" Width="1.5" PointX="7.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_RoomType" Width="1.5" PointX="5.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_State" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.HMS_TaxControl" Width="1.5" PointX="14.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.Prefix" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSModel.Status" Width="1.5" PointX="5.25" PointY="26.125" IsExpanded="true" />
+        <AssociationConnector Association="PMSModel.FK_AdvanceControl_Outlet" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_CheckIn_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_CheckIn_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_CheckIn_Guest" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_CheckIn_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_CheckIn_Purpose" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_CheckIn_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_City_State" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_Guest_City" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_Outlet_Control" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_Guest_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_State_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_Room_Floor" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_Guest_Prefix" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_Guest_State" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_TaxControl_Outlet" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_Room_RoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSModel.FK_Room_Status" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

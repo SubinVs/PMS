@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" data-textdirection="ltr" class="loading">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="GPS - Property Management Systems">
+    <meta name="author" content="GPS">
+    <title>PMS</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    @Styles.Render("~/bootstrap/css")
+    @Styles.Render("~/fonts/css")
+    @Styles.Render("~/robust/css")
+    @Styles.Render("~/page/css")
+    @Styles.Render("~/custom/css")
+</head>
+<body data-open="click" data-menu="vertical-menu" data-col="1-column" class="vertical-layout vertical-menu 1-column  fixed-navbar">
+    @Html.Partial("_Dashboard_Headermenu")
+    <div class="app-content content container-fluid">
+        <div class="content-wrapper">
+            @*@Html.Partial("_Dashboard_Breadcrumb")*@
+            <div class="content-body">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    @*@Html.Partial("_Dashboard_Footer")*@
+    @Scripts.Render("~/script/js")
+    @Scripts.Render("~/robust/js")
+    @Scripts.Render("~/page/js")
+    <script>
+        var $rows = $('#table tbody tr');
+        $('#search').keyup(function () {
+            var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+            $rows.show().filter(function () {
+                var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+                return !~text.indexOf(val);
+            }).hide();
+        });
+    </script>
+    <script>
+        function myFunction() {
+            // Declare variables
+            var input, filter, ul, li, a, i;
+            input = document.getElementById('searchKey');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("side-menu");
+            li = ul.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <script>
+            $('#FromDate').dateDropper();
+    </script>
+    <script>
+            $(document).ready(function () {
+                $('#Guest_CountryId').change(function () {
+                    var countryId = $('#Guest_CountryId').val();
+                    $.ajax({
+                        type: 'GET',
+                        data: { id: countryId },
+                        url: '@Url.Action("GetStateList", "CheckIn")',
+                        success: function (result) {
+                            $.each(result, function (index, row) {
+                                $('#Guest_StateId').append('<option value="' + row.id + '">' + row.name + '</option')
+                            });
+                        }
+                    });
+                });
+                $('#Guest_StateId').change(function () {
+                    var stateId = $('#Guest_StateId').val();
+                    $.ajax({
+                        type: 'GET',
+                        data: { id: stateId },
+                        url: '@Url.Action("GetCityList", "CheckIn")',
+                        success: function (result) {
+                            $.each(result, function (index, row) {
+                                $('#Guest_CityId').append('<option value="' + row.id + '">' + row.name + '</option')
+                            });
+                        }
+                    });
+                });
+            });
+    </script>
+</body>
+</html>

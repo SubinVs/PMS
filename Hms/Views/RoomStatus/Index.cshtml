@@ -1,0 +1,46 @@
+﻿@model ViewModel.RoomStatusModel
+<div class="row">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="card-body collapse in">
+                    <div class="card-block">
+                        @foreach (var n in Model.FloorList)
+                        {
+                            <div class="row">
+                                <h4 class="form-section"><i class="icon-head"></i>@n.FloorName</h4>
+                                <div class="form-group">
+                                    @foreach (var m in Model.RoomList.Where(m => m.FloorId == n.Id))
+                                    {
+                                        <div class="btn-group mr-1 mb-1">
+                                            <button type="button" class="btn @(m.StatusId == 1 ? "btn-success" : "btn-danger")" style="width:40px;">@m.RoomNo</button>
+                                            <button type="button" class="btn @(m.StatusId == 1 ? "btn-success" : "btn-danger") dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            @if (m.StatusId == 1)
+                                            {
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="@Url.Action("Create","CheckIn",new { id = m.Id})">Check-In</a>
+                                                    <a class="dropdown-item" href="#">Block</a>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="#">Check-Out</a>
+                                                    <a class="dropdown-item" href="#">Advance</a>
+                                                    <a class="dropdown-item" href="#">Check-In Modification</a>
+                                                </div>
+                                            }
+
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,174 @@
+﻿@model DataModel.Outlet
+
+<section id="basic-form-layouts">
+    <div class="row match-height">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title" id="basic-layout-form">Create Control</h4>
+                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                            <li><a href="@Url.Action("Index",ViewBag.ControllerName)"><i class="icon-cross2"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-body collapse in">
+                    <div class="card-block">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <form class="form">
+                                <div class="form-body">
+                                    <h4 class="form-section"><i class="icon-clipboard4"></i>Create Control</h4>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="certificateName">Outlet Name</label>
+                                                <div class="position-relative has-icon-left">
+                                                    @Html.TextBoxFor(n => n.OutletName, null, new { @class = "form-control", @autofocus = "autofocus" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-clipboard4"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.OutletName, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="certificateName">Grc No</label>
+                                                <div class="position-relative has-icon-left">
+                                                    @Html.TextBoxFor(n => n.GRCNo, null, new { @class = "form-control", @autofocus = "autofocus" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-clipboard4"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.GRCNo, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="certificateName">Grace Hours</label>
+                                                <div class="position-relative has-icon-left">
+                                                    @Html.TextBoxFor(n => n.GraceHours, null, new { @class = "form-control", @autofocus = "autofocus" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-clipboard4"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.GraceHours, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="">Address</label>
+                                                @Html.TextAreaFor(n => n.Address, new { @class = "form-control", @rows = "3" })
+                                                <div class="form-control-position">
+                                                    <i class="icon-address-book"></i>
+                                                </div>
+                                                @Html.ValidationMessageFor(n => n.Address, null, new { @style = "color:red;" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="">Alternate Address</label>
+                                                @Html.TextAreaFor(n => n.AlternateAddress, new { @class = "form-control", @rows = "3" })
+                                                <div class="form-control-position">
+                                                    <i class="icon-address-book"></i>
+                                                </div>
+                                                @Html.ValidationMessageFor(n => n.AlternateAddress, null, new { @style = "color:red;" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="certificateName">Phone No</label>
+                                                <div class="position-relative has-icon-left">
+                                                    @Html.TextBoxFor(n => n.PhoneNo, null, new { @class = "form-control", @autofocus = "autofocus" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-clipboard4"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.PhoneNo, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="certificateName">Alternate Phone No</label>
+                                                <div class="position-relative has-icon-left">
+                                                    @Html.TextBoxFor(n => n.AlternatePhoneNo, null, new { @class = "form-control", @autofocus = "autofocus" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-clipboard4"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.AlternatePhoneNo, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="certificateName">Mobile No</label>
+                                                <div class="position-relative has-icon-left">
+                                                    @Html.TextBoxFor(n => n.MobileNo, null, new { @class = "form-control", @autofocus = "autofocus" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-clipboard4"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.MobileNo, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="certificateName">Alternate Mobile No</label>
+                                                <div class="position-relative has-icon-left">
+                                                    @Html.TextBoxFor(n => n.AlternateMobileNo, null, new { @class = "form-control", @autofocus = "autofocus" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-clipboard4"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.AlternateMobileNo, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="certificateName">Email Id</label>
+                                                <div class="position-relative has-icon-left">
+                                                    @Html.TextBoxFor(n => n.EmailId, null, new { @class = "form-control", @autofocus = "autofocus" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-clipboard4"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.EmailId, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="certificateName">Alternate Email Id</label>
+                                                <div class="position-relative has-icon-left">
+                                                    @Html.TextBoxFor(n => n.AlternateEmailId, null, new { @class = "form-control", @autofocus = "autofocus" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-clipboard4"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.AlternateEmailId, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-actions right">
+                                    <span style="color:red;float:left"> @ViewBag.DuplicateError </span>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="icon-check2"></i> Create
+                                    </button>
+                                    <a href="@Url.Action("Index",ViewBag.ControllerName)" class="btn btn-warning mr-1">
+                                        <i class="icon-cross2"></i> Cancel
+                                    </a>
+                                </div>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

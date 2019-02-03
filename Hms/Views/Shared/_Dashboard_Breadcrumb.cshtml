@@ -1,0 +1,23 @@
+﻿<div class="content-header row">
+    <div class="content-header-left col-md-6 col-xs-12 mb-1">
+        <h2 class="content-header-title">@ViewBag.Title</h2>
+    </div>
+    <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
+        <div class="breadcrumb-wrapper col-xs-12">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "Dashboard")">Home</a></li>
+                @{
+                    if (ViewBag.ControllerName != null)
+                    {
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index", ViewBag.ControllerName)">@ViewBag.Title</a></li>
+                    }
+                    if (ViewBag.MethodName != null)
+                    {     
+                    <li class="breadcrumb-item active"><a href="#">@ViewBag.MethodName</a></li>
+                    }
+                }
+            </ol>
+        </div>
+    </div>
+</div>
+

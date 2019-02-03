@@ -1,0 +1,228 @@
+﻿@model ViewModel.CheckInModel
+@{
+    Layout = "~/Views/Layout/_CheckInLayout.cshtml";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">@ViewBag.Title <small class="teal">Room No: @ViewBag.RoomNo - Grc No: @ViewBag.GrcNo</small></h4>
+                @*<input id="search" type="text" placeholder="Search" class="form-control round" style="width:150px; display:initial;" autofocus>*@
+                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                        <li><a href="#"><i class="icon-cross2"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body collapse in">
+                <div class="card-block">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <form class="form">
+                            <div class="form-body">
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h4 class="form-section"><i class="icon-head"></i> Guest Info</h4>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="prefixId" class="control-label">Prefix</label>
+                                                    @Html.DropDownListFor(n => n.Guest.PrefixId, new SelectList(Model.PrefixList, "Id", "PrefixName"), new { @class = "form-control", @tabindex = 1})
+                                                    @Html.ValidationMessageFor(n => n.Guest.PrefixId, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label for="certificateName">Guest Name</label>
+                                                    <div class="position-relative has-icon-left">
+                                                        @Html.TextBoxFor(n => n.Guest.GuestName, null, new { @class = "form-control", @autofocus = "autofocus", @tabindex = 2 })
+                                                        <div class="form-control-position">
+                                                            <i class="icon-clipboard4"></i>
+                                                        </div>
+                                                        @Html.ValidationMessageFor(n => n.Guest.GuestName, null, new { @style = "color:red;" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="companyId" class="control-label">Company</label>&nbsp;<a href="@Url.Action("Index", "Company")" style="float:right"><i class="fa fa-plus-circle"></i></a>
+                                                    @Html.DropDownListFor(n => n.CompanyId, new SelectList(Model.CompanyList, "Id", "CompanyName"), new { @class = "form-control", @tabindex = 3 })
+                                                    @Html.ValidationMessageFor(n => n.CompanyId, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="AgentId" class="control-label">Agent</label>&nbsp;<a href="@Url.Action("Index", "Agent")" style="float:right"><i class="fa fa-plus-circle"></i></a>
+                                                    @Html.DropDownListFor(n => n.AgentId, new SelectList(Model.AgentList, "Id", "AgentName"), new { @class = "form-control", @tabindex = 4 })
+                                                    @Html.ValidationMessageFor(n => n.AgentId, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="">Address</label>
+                                                    @Html.TextAreaFor(n => n.Guest.Address, new { @class = "form-control", @rows = "6" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-address-book"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.Guest.Address, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="countryId" class="control-label">Country</label>
+                                                            @Html.DropDownListFor(n => n.Guest.CountryId, new SelectList(Model.CountryList, "Id", "name"), new { @class = "form-control", @tabindex = 6 })
+                                                            @Html.ValidationMessageFor(n => n.Guest.CountryId, null, new { @style = "color:red;" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="stateId" class="control-label">State</label>
+                                                            @Html.DropDownListFor(n => n.Guest.StateId, new SelectList(" "), new { @class = "form-control", @tabindex = 7 })
+                                                            @Html.ValidationMessageFor(n => n.Guest.StateId, null, new { @style = "color:red;" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="cityId" class="control-label">City</label>
+                                                            @Html.DropDownListFor(n => n.Guest.CityId, new SelectList(" "), new { @class = "form-control", @tabindex = 8 })
+                                                            @Html.ValidationMessageFor(n => n.Guest.CityId, null, new { @style = "color:red;" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label for="pincode">Pincode</label>
+                                                            <div class="position-relative has-icon-left">
+                                                                @Html.TextBoxFor(n => n.Guest.Pincode, null, new { @class = "form-control", @autofocus = "autofocus", @tabindex = 2 })
+                                                                <div class="form-control-position">
+                                                                    <i class="icon-clipboard4"></i>
+                                                                </div>
+                                                                @Html.ValidationMessageFor(n => n.Guest.Pincode, null, new { @style = "color:red;" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label for="mobileNo">Mobile No</label>
+                                                            <div class="position-relative has-icon-left">
+                                                                @Html.TextBoxFor(n => n.Guest.MobileNo, null, new { @class = "form-control", @autofocus = "autofocus", @tabindex = 2 })
+                                                                <div class="form-control-position">
+                                                                    <i class="icon-clipboard4"></i>
+                                                                </div>
+                                                                @Html.ValidationMessageFor(n => n.Guest.MobileNo, null, new { @style = "color:red;" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label for="mailId">Email Id</label>
+                                                            <div class="position-relative has-icon-left">
+                                                                @Html.TextBoxFor(n => n.Guest.EmailId, null, new { @class = "form-control", @autofocus = "autofocus", @tabindex = 2 })
+                                                                <div class="form-control-position">
+                                                                    <i class="icon-clipboard4"></i>
+                                                                </div>
+                                                                @Html.ValidationMessageFor(n => n.Guest.EmailId, null, new { @style = "color:red;" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">Comments</label>
+                                                    @Html.TextAreaFor(n => n.Comments, new { @class = "form-control", @rows = "2" })
+                                                    <div class="form-control-position">
+                                                        <i class="icon-address-book"></i>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(n => n.Comments, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="planId" class="control-label">Purpose</label>&nbsp;<a href="@Url.Action("Index", "Purpose")" style="float:right"><i class="fa fa-plus-circle"></i></a>
+                                                    @Html.DropDownListFor(n => n.PurposeId, new SelectList(Model.PurposeList, "Id", "PurposeType"), new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(n => n.PurposeId, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="planId" class="control-label">Plan</label>&nbsp;<a href="@Url.Action("Index", "Plan")" style="float:right"><i class="fa fa-plus-circle"></i></a>
+                                                    @Html.DropDownListFor(n => n.PlanId, new SelectList(Model.PlanList, "Id", "PlanType"), new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(n => n.PlanId, null, new { @style = "color:red;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">From Date</label>
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control" id="FromDate" data-modal="true" data-large-mode="true" data-large-default="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">From Time</label>
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control" id="FromDate" data-modal="true" data-large-mode="true" data-large-default="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">To Date</label>
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control" id="FromDate" data-modal="true" data-large-mode="true" data-large-default="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">To Time</label>
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control" id="FromDate" data-modal="true" data-large-mode="true" data-large-default="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img class="media-object" src="~/Images/guest.png" style="width:130px; height:130px" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img class="media-object" src="~/Images/guestDocument.png" style="width:130px; height:130px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions right">
+                                <span style="color:red;float:left"> @ViewBag.DuplicateError </span>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="icon-check2"></i> Create
+                                </button>
+                                <a href="@Url.Action("Index",ViewBag.ControllerName)" class="btn btn-warning mr-1">
+                                    <i class="icon-cross2"></i> Cancel
+                                </a>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

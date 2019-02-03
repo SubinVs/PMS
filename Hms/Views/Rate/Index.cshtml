@@ -1,0 +1,95 @@
+﻿@model IEnumerable<DataModel.Rate>
+@{
+    Layout = "~/Views/Layout/_RateLayout.cshtml";
+    var x = 0;
+    var y = 0;
+    var agentRowSpan = 0;
+    var planRowspan = 0;
+    var a = 0;
+    var b = 0;
+}
+<div class="row" ng-controller="RateController">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                @*<h4 class="card-title">@ViewBag.Title</h4>*@
+                <input id="search" type="text" placeholder="Search" class="form-control round" ng-model="filterRate" style="width:150px; display:initial;" autofocus>
+                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a href="@Url.Action("Create", ViewBag.ControllerName)"><i class="icon-plus4"></i></a></li>
+                        <li><a href="#"><i class="icon-file-excel"></i></a></li>
+                        <li><a href="#"><i class="icon-file-pdf"></i></a></li>
+                        <li><a href="#"><i class="icon-printer"></i></a></li>
+                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body collapse in">
+                <div class="card-block card-dashboard">
+                   
+                    <div class="table-responsive table-hover">
+                        <table id="table" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Agent</th>
+                                    <th>Plan</th>
+                                    <th>Room Type</th>
+                                    <th>Occupancy</th>
+                                    <th>Amount</th>
+                                    <th>Extra Person Charge</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="rate in RateList |filter:filterRate">
+                                    <td>{{rate.AgentName}}</td>
+                                    <td>{{rate.PlanName}}</td>
+                                    <td>{{rate.RoomType}}</td>
+                                    <td>Occupancy : {{rate.Occupancy}}</td>
+                                    <td><input type="text" class="form-control" ng-model="rate.Amount" /></td>
+                                    <td><input type="text" class="form-control" ng-model="rate.ExtraPersonCharge" /></td>
+                                    <td><button class="btn btn-danger" ng-click="UpdateRate($index)">Update</button></td>
+                                </tr>
+
+                                
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="card col-md-12" ng-repeat="agent in AgentList">
+                            <div class="card-header">
+                                <span class="text-bold-600">{{agent.AgentName}}</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3" ng-repeat="plan in PlanList">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <span class="text-bold-600">{{plan.PlanType}}</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12" ng-repeat="roomType in RoomTypeList">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <span class="text-bold-600">{{roomType.RoomTypeName}}</span>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

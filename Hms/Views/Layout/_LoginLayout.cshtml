@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/custom/stylelogin.css" rel="stylesheet" />
+</head>
+<body oncopy="return false;" oncut="return false;" onpaste="return false;">
+    <div>
+        @RenderBody()
+    </div>
+    <script src="~/Theme/js/core/libraries/jquery.js"></script>
+    <script src="~/Theme/vendors/js/ui/tether.js"></script>
+    <script src="~/Theme/js/core/libraries/bootstrap.js"></script>
+    <footer>
+        <p>Copyright (c) @DateTime.Now.Year <a href="http://www.infomapsesm.com" target="_blank">FayBox</a> All rights reserved</p>
+    </footer>
+</body>
+</html>
